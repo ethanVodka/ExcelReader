@@ -34,6 +34,12 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.MainDgv = new System.Windows.Forms.DataGridView();
             this.OkButton = new System.Windows.Forms.Button();
+            this.pinNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.netColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.netName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mergedNetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InOutType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.signalType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -107,9 +113,17 @@
             // 
             this.MainDgv.AllowUserToAddRows = false;
             this.MainDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MainDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pinNumber,
+            this.netColor,
+            this.netName,
+            this.mergedNetName,
+            this.InOutType,
+            this.signalType});
             this.MainDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainDgv.Location = new System.Drawing.Point(0, 0);
             this.MainDgv.Name = "MainDgv";
+            this.MainDgv.RowHeadersVisible = false;
             this.MainDgv.RowTemplate.Height = 21;
             this.MainDgv.Size = new System.Drawing.Size(961, 451);
             this.MainDgv.TabIndex = 0;
@@ -123,6 +137,37 @@
             this.OkButton.TabIndex = 2;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
+            // pinNumber
+            // 
+            this.pinNumber.HeaderText = "ピン番号";
+            this.pinNumber.Name = "pinNumber";
+            // 
+            // netColor
+            // 
+            this.netColor.HeaderText = "ネット色";
+            this.netColor.Name = "netColor";
+            // 
+            // netName
+            // 
+            this.netName.HeaderText = "ネット名";
+            this.netName.Name = "netName";
+            // 
+            // mergedNetName
+            // 
+            this.mergedNetName.HeaderText = "ネット名(マージ)";
+            this.mergedNetName.Name = "mergedNetName";
+            // 
+            // InOutType
+            // 
+            this.InOutType.HeaderText = "I / O";
+            this.InOutType.Name = "InOutType";
+            // 
+            // signalType
+            // 
+            this.signalType.HeaderText = "A / D";
+            this.signalType.Name = "signalType";
             // 
             // MainForm
             // 
@@ -154,6 +199,12 @@
         private System.Windows.Forms.Button ReadPiniButton;
         private System.Windows.Forms.Button ReadPortTextButton;
         private System.Windows.Forms.Button OkButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pinNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn netColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn netName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mergedNetName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InOutType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn signalType;
     }
 }
 

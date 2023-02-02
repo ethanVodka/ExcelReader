@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices.WindowsRuntime;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using PortTextReader.Models;
 
 namespace PortTextReader
 {
-    public partial class MainForm: Form
+    public partial class MainForm : Form
     {
         public MainForm()
         {
@@ -44,7 +45,17 @@ namespace PortTextReader
         //PiniDataをデータグリッドビューへ表示
         private void SetPiniDataToDgv()
         {
+            for (int i = 0; i < BaseModel.PiniData.Count; i++)
+            {
+                MainDgv.Rows.Add();
 
+                MainDgv[0, i].Value = BaseModel.PiniData[i].PinNumber.ToString();
+                MainDgv[1, i].Value = BaseModel.PiniData[i].NetColor.ToString();
+                MainDgv[2, i].Value = BaseModel.PiniData[i].NetName;
+                MainDgv[3, i].Value = BaseModel.PiniData[i].MergedNetName;
+                MainDgv[4, i].Value = BaseModel.PiniData[i].InOutType;
+                MainDgv[5, i].Value = BaseModel.PiniData[i].SignalType;
+            }
         }
 
         //piniファイル読み込み
@@ -61,15 +72,12 @@ namespace PortTextReader
 
                         using (Models.PiniClass piniClass = new Models.PiniClass())
                         {
-                            for (int i = 0; i < splitLine.Length; i++)
-                            {
-                                piniClass.PinNumber = int.Parse(splitLine[0]);
-                                piniClass.NetColor = ColorTranslator.FromHtml(splitLine[1]);
-                                piniClass.NetName = splitLine[2];
-                                piniClass.MergedNetName = splitLine[3];
-                                piniClass.InOutType = splitLine[4];
-                                piniClass.SignalType = splitLine[5];
-                            }
+                            piniClass.PinNumber = int.Parse(splitLine[0]);
+                            piniClass.NetColor = ColorTranslator.FromHtml(splitLine[1]);
+                            piniClass.NetName = splitLine[2];
+                            piniClass.MergedNetName = splitLine[3];
+                            piniClass.InOutType = splitLine[4];
+                            piniClass.SignalType = splitLine[5];
 
                             Models.BaseModel.PiniData.Add(piniClass);
                         }
@@ -111,7 +119,7 @@ namespace PortTextReader
             }
             catch (Exception ex)
             {
-                Utilis.ExceptionManager.ShowExceptionDetail (ex);
+                Utilis.ExceptionManager.ShowExceptionDetail(ex);
             }
         }
 
@@ -140,6 +148,11 @@ namespace PortTextReader
             {
                 Utilis.ExceptionManager.ShowExceptionDetail(ex);
             }
+        }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

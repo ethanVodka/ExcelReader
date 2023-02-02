@@ -39,12 +39,12 @@ namespace PortTextReader.Models
         public static string PortTextFilePath
         {
             get
-            { 
-                return portTextFilepath; 
-            }
-            set 
             {
-                portTextFilepath = value; 
+                return portTextFilepath;
+            }
+            set
+            {
+                portTextFilepath = value;
             }
         }
 
@@ -55,14 +55,7 @@ namespace PortTextReader.Models
         {
             get
             {
-                if (piniData.Count == 0)
-                {
-                    throw new Exception("pini data is empty");
-                }
-                else
-                {
-                    return piniData;
-                }
+                return piniData;
             }
             set
             {
@@ -76,14 +69,7 @@ namespace PortTextReader.Models
         {
             get
             {
-                if (portTextData.Count == 0)
-                {
-                    throw new Exception("portText data is empty");
-                }
-                else
-                {
-                    return portTextData;
-                }
+                return portTextData;
             }
             set
             {

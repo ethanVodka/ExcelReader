@@ -16,6 +16,9 @@ namespace PortTextReader
             {
                 if (args.Length == 0 || args[0].Length == 0 || args[1].Length == 0)
                 {
+                    //debug
+                    BaseModel.SettingDir = @"C:\Users\pikas\OneDrive\デスクトップ";
+                    BaseModel.PiniFilePath = @"C:\Users\pikas\OneDrive\デスクトップ\portText.pini";
                     //throw new ArgumentException("illegle arguments");
                 }
                 else
